@@ -210,5 +210,61 @@ body {
             width: 100%; // Fallback for browsers without Viewport Width support
             width: 100vw;
         }
+
+        .sidebar-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: inherit;
+            height: 100%;
+            overflow-y: scroll;
+        }
+    }
+}
+
+/* Sidebar menu */
+.menu-list {
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+    padding: 35px;
+
+    .menu-head {
+        font-weight: 700;
+        margin-top: 0px;
+        margin-bottom: 40px;
+    }
+
+    .menu-group-title {
+        font-weight: 700;
+        margin-top: 10px;
+    }
+
+    .menu-group {
+        list-style: none;
+        padding: 0px;
+        margin-top: 10px;
+
+        .menu-group-head {
+            font-weight: 300;
+        }
+
+        .menu-group-item {
+            margin-bottom: 10px;
+            
+            .item-title,
+            .item-subtitle {
+                margin-bottom: 0px;
+                font-family: 'Lato', sans-serif;
+            }
+
+            .item-title {
+                font-weight: 700;
+            }
+
+            .item-subtitle {
+                font-weight: 400;
+            }
+
+        }
     }
 }
