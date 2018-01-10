@@ -2,7 +2,6 @@
 * Globals
 */
 $sidebar-width: 500px;
-$sidebar-width-mobile: 100%;
 
 
 /* Links */
@@ -44,6 +43,7 @@ p {
 */
 html,
 body {
+    position: relative;
     height: 100%;
     background-color: #0f4732;
     overflow-x: hidden;
@@ -55,15 +55,13 @@ body {
 .masthead {
     position: absolute;
     top: 25px;
-    right: 0;
-    left: 0;
+    right: 25px;
 
     @media screen and(max-width: 600px) {
         top: 15px;
         right: 15px;
-        z-index: 10;
     }
-
+    
     .menu-icon {
         display: block;
         float: right;
@@ -77,18 +75,39 @@ body {
         
         .icon-bar {
             display: block;
-            background-color: #FFF;
             width: 100%;
             height: 2px;
             border-radius: 1px;
             margin-left: auto;
             margin-right: auto;
-            transition: width 0.3s, margin 0.3s, transform 0.3s;
-            transition-delay: 0.3s, 0.3s, 0s;
         }
+    }
 
+    &.masthead-main {
+        z-index: 5;
+
+        .icon-bar {
+            background-color: #FFF;
+        }
+        
         .icon-bar + .icon-bar {
             margin-top: 10px;
+        }
+    }
+    &.masthead-sidebar {
+        z-index: 10;
+
+        .icon-bar {
+            background-color: #333;
+
+            &.bar-1 {
+                transform: rotate(-45deg);
+            }
+
+            &.bar-2 {
+                margin-top: -2px;
+                transform: rotate(45deg);
+            }
         }
     }
 }
@@ -160,31 +179,36 @@ body {
 
 }
 
-.sidebar {
-    position: absolute;
-    display: block;
+/* Sidebar */
+.sidebar-outer {
+    position: fixed;
     top: 0;
-    right: -$sidebar-width;
+    right: 0;
     height: 100%;
-    width: $sidebar-width;
-    background-color: #FFF;
-    color: #333;
-    z-index: 1;
-    transition: right 0.5s ease-in;
-
-    @media screen and(max-width: 600px) {
-        width: $sidebar-width-mobile;
-    }
+    width: 0;
+    overflow: hidden;
+    transition: width 0.5s ease;
+    z-index: 10;
 
     &.open {
-        right: 0;                
+        width: $sidebar-width;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }    
     }
 
-    .sidebar-content {
-        margin-top: 30px;
+    .sidebar-inner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: $sidebar-width;
+        background-color: #FFF;
 
-        @media screen and(max-width: 600px) {
-            margin-top: 80px;
+        @media screen and (max-width: 600px) {
+            width: 100%; // Fallback for browsers without Viewport Width support
+            width: 100vw;
         }
     }
 }
