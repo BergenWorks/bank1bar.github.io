@@ -1,5 +1,8 @@
 (function ($) {
     $(function () {
+        /**
+         * Setup sidebar menu toggle
+         */
         $('.open-sidebar').on('click', function () {
             $('#sidebar').addClass('open');
         });

@@ -243,6 +243,7 @@ body {
         list-style: none;
         padding: 0px;
         margin-top: 10px;
+        margin-bottom: 40px;
 
         .menu-group-head {
             font-weight: 300;
@@ -255,6 +256,14 @@ body {
             .item-subtitle {
                 margin-bottom: 0px;
                 font-family: 'Lato', sans-serif;
+
+                span::after {
+                    content: " |";
+                }
+
+                span:last-of-type::after {
+                    content: "";
+                }
             }
 
             .item-title {
