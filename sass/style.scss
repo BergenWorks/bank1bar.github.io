@@ -1,7 +1,7 @@
 /*
 * Globals
 */
-$sidebar-width: 500px;
+$sidebar-width: 450px;
 
 
 /* Links */
@@ -206,7 +206,7 @@ body {
         width: $sidebar-width;
         background-color: #FFF;
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 450px) {
             width: 100%; // Fallback for browsers without Viewport Width support
             width: 100vw;
         }
@@ -237,9 +237,35 @@ body {
     .menu-group-title {
         font-weight: 700;
         margin-top: 10px;
+        cursor: pointer;
+
+        a {
+            position: relative;
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:before {
+            content: "";
+            position: absolute;
+            width: 0px;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #333;
+            visibility: hidden;
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        &.open a:before {
+            visibility: visible;
+            width: 100%;
+        }
     }
 
     .menu-group {
+        display: none;
         list-style: none;
         padding: 0px;
         margin-top: 10px;
